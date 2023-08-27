@@ -1,0 +1,72 @@
+﻿@model WelfareSurveySystem.WebUI.Models.RealEstateTypesViewModel
+
+
+@{
+    ViewData["Title"] = "AddRealEstate";
+}
+
+
+<h1>Add RealEstate</h1>
+
+
+<h4>RealEstate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddRealEstate">
+            <input type="hidden" name="EmployeeID" value="@ViewBag.EmployeeID">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <input type="hidden" name="RealEstateId" value="@ViewBag.RealEstateId">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+            </div>
+
+          @*  <div class="form-group">
+                <label class="control-label">RealEstateType</label>
+                @Html.DropDownListFor(model => model.RealEstateTypeId, ViewBag.RealEstateTypeSelectList as SelectList, "Select a RealEstateType", new { @class = "form-control" })
+                <span asp-validation-for="RealEstateTypeId" class="text-danger"></span>
+            </div>*@
+
+
+            <div class="form-group">
+                <label class="control-label">RealEstateType</label>
+                <input name="RealEstateType" class="form-control" />
+                @*<span asp-validation-for="Name" class="text-danger"></span>*@
+        @*@*      </div>**@
+          @*  <div class="form-group">
+                <label asp-for="RealEstateType" class="control-label"></label>
+                <select asp-for="RealEstateType" class="form-control">
+                    <option value="">Select Real Estate</option>
+                    <option value="HOUSE">House</option>
+                    <option value="APARTEMENT">Apartment</option>
+                    <option value="FARM">Farm</option>
+                    <option value="LAND">Land</option>
+                    <option value="LAND">Land</option>
+                </select>
+                <span asp-validation-for="RealEstateType" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label class="control-label">OwnOrRent</label>
+                <input name="OwnOrRent" class="form-control" />
+               @* @*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label">RealEstateNumber</label>
+                <input name="RealEstateNumber" class="form-control" />
+                @*@*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label class="control-label">RealEstateDescription</label>
+                <input name="RealEstateDescription" class="form-control" />
+                @*@*<span asp-validation-for="Name" class="text-danger"></span>*@
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

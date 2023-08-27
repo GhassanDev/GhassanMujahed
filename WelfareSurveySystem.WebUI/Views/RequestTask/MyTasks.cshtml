@@ -1,0 +1,48 @@
+﻿@model IEnumerable<WelfareSurveySystem.WebUI.Models.RequestTaskViewModel>
+
+@{
+    ViewData["Title"] = "MyTasks";
+}
+
+<h1>Tasks assigned to Branch @ViewBag.Branch</h1>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FormName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TaskRequestID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FromServiceNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ServiceNo)
+            </th>
+           <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FormName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskRequestID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromServiceNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceNo)
+            </td>
+           <td> <a class="btn btn-primary" asp-action="Details" asp-controller="RequestTask" asp-route-serviceNo="@item.ServiceNo">View Details</a></td>
+        </tr>
+}
+    </tbody>
+</table>
